@@ -1,6 +1,7 @@
 [versions]
 junit-jupiter = "5.10.3"
 assertj = "3.11.1"
+pitest = "1.15.0"
 
 [libraries]
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
@@ -8,3 +9,6 @@ assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 
 [bundles]
 testlibs = ["junit-jupiter", "assertj"]
+
+[plugins]
+pitest = { id = "info.solidsoft.pitest", version.ref = "pitest" }

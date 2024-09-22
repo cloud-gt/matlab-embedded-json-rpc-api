@@ -1,7 +1,10 @@
 plugins {
     `java-library`
     jacoco
+    alias(libs.plugins.pitest)
 }
+
+group = "dev.cloudgt"
 
 repositories {
     mavenCentral()
@@ -18,11 +21,19 @@ java {
     }
 }
 
+pitest {
+    pitestVersion = "1.17.0"
+    junit5PluginVersion = "1.2.1"
+    outputFormats = listOf("HTML")
+    threads = 4
+}
+
 tasks {
     build {
         dependsOn(
             jacocoTestReport,
             jacocoTestCoverageVerification,
+            pitest,
         )
     }
 
@@ -59,6 +70,10 @@ tasks {
                 }
             }
         }
+    }
+
+    this.pitest {
+        mustRunAfter(test)
     }
 }
 

@@ -8,6 +8,6 @@ public class DummyTest {
 
     @Test
     void name() {
-        assertThat(Hello.call()).isEqualTo("hello");
+        assertThat(new Hello().call()).isEqualTo("hello");
     }
 }
