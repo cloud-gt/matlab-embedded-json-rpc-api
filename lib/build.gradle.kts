@@ -7,7 +7,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.bundles.testlibs)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
