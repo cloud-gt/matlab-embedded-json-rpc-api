@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.pitest)
     alias(libs.plugins.jvm)
-    distribution
 }
 
 val matlabroot = providers.gradleProperty("matlabroot").get()
@@ -13,8 +12,8 @@ kotlin {
 }
 
 dependencies {
-    implementation(project(":matlab-embedded"))
     compileOnly(files("$matlabroot/extern/engines/java/jar/engine.jar"))
+    implementation(project(":json-rpc-server:api"))
 
     implementation(platform("org.http4k:http4k-bom:5.27.0.0"))
     implementation("org.http4k:http4k-format-jackson")
@@ -40,21 +39,10 @@ tasks {
     }
 
     jar {
-        archiveBaseName = "json-rpc-api-lib"
+        archiveBaseName = "matlab-engine-json-rpc-server-core"
     }
 
     this.pitest {
         mustRunAfter(test)
     }
 }
-
-distributions {
-    main {
-        distributionBaseName = "json-rpc-api-lib"
-        contents {
-            from(tasks.jar)
-            from(configurations.runtimeClasspath)
-        }
-    }
-}
-

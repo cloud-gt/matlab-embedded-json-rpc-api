@@ -5,4 +5,5 @@ plugins {
 rootProject.name = "matlab-embedded-json-rpc-api"
 
 include("matlab-embedded")
-include("json-rpc-server")
+include("json-rpc-server:api")
+include("json-rpc-server:core")

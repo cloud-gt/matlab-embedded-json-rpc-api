@@ -1,9 +1,10 @@
 package dev.cloudgt.matlab
 
+import com.mathworks.engine.MatlabEngine
 import java.io.Writer
 
 class Matlab(
-    private val matlabEngine: MatlabEngineApi,
+    private val matlabEngine: MatlabEngine,
     private val stdout: Writer,
     private val stderr: Writer
 ) {

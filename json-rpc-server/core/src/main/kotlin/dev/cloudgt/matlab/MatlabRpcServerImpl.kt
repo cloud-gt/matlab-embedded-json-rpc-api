@@ -2,6 +2,7 @@ package dev.cloudgt.matlab
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.mathworks.engine.MatlabEngine
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method.POST
 import org.http4k.core.Request
@@ -19,8 +20,9 @@ import org.http4k.websocket.Websocket
 import org.http4k.websocket.WsMessage
 import org.http4k.websocket.WsResponse
 import java.util.concurrent.CompletableFuture.runAsync
+import java.util.function.Supplier
 
-class MatlabJsonRpcServer(private val engineFactory: () -> MatlabEngineApi) : JsonRpcApi {
+class MatlabRpcServerImpl(private val engineFactory: Supplier<MatlabEngine>) : MatlabRpcServer {
 
     private lateinit var server: Http4kServer
 
@@ -31,7 +33,7 @@ class MatlabJsonRpcServer(private val engineFactory: () -> MatlabEngineApi) : Js
             "/" bind { req: Request ->
                 WsResponse { ws: Websocket ->
 
-                    val engine = engineFactory()
+                    val engine = engineFactory.get()
                     ws.onClose { engine.disconnect() }
 
                     ws.send(WsMessage(""" {"jsonrpc": "2.0", "method": "connected", "params": {"message" : "Successfully connected to MATLAB."}} """))

@@ -7,6 +7,8 @@ import com.mathworks.engine.UnsupportedTypeException
 import org.http4k.format.Json
 import org.http4k.jsonrpc.ErrorHandler
 import org.http4k.jsonrpc.ErrorMessage
+import java.lang.IllegalStateException
+import java.util.concurrent.CancellationException
 
 object MatlabErrorHandler : ErrorHandler {
     override fun invoke(error: Throwable): ErrorMessage? = when (error) {
@@ -24,6 +26,9 @@ object MatlabErrorHandler : ErrorHandler {
 
         is MatlabExecutionException -> MatlabExceptionMessage(3, "Runtime error in MATLAB code", error)
         is MatlabSyntaxException -> MatlabExceptionMessage(4, "Syntax error in MATLAB expression", error)
+        is CancellationException -> MatlabExceptionMessage(5, "Evaluation of a MATLAB function was canceled", error)
+        is InterruptedException -> MatlabExceptionMessage(6, "Evaluation of a MATLAB function was interrupted", error)
+        is IllegalStateException -> MatlabExceptionMessage(7, "The MATLAB session is not available.", error)
 
         else -> null
     }
