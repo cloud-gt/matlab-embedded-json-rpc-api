@@ -24,7 +24,7 @@
     <param.getting.started.guide />
     <param.matlabpath.excludes />
     <param.javaclasspath.excludes>
-      <item>/matlab-engine-json-rpc/rpc-server/matlab-control-5.0..jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/matlab-control-5.0.0.jar</item>
       <item>/matlab-engine-json-rpc/rpc-server/http4k-format-core-5.27.0.0.jar</item>
       <item>/matlab-engine-json-rpc/rpc-server/kotlin-reflect-1.7.22.jar</item>
       <item>/matlab-engine-json-rpc/rpc-server/http4k-server-websocket-5.27.0.0.jar</item>
