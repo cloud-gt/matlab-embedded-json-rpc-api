@@ -1,4 +1,4 @@
-function loadRpcEngine()
+function shareEngine(port)
 [installRootDir, ~, ~] = fileparts(which('matlab-engine-json-rpc.anchor'));
 
 jpath = javaclasspath('-all');
@@ -18,4 +18,5 @@ end
 serverJarsDir = fullfile(installRootDir, 'rpc-server');
 dev.cloudgt.matlab.MatlabRpcServerLoader.load(serverJarsDir);
 
+dev.cloudgt.matlab.MatlabEmbeddedRpcServer.start(port);
 end

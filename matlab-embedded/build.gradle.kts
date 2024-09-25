@@ -55,8 +55,6 @@ tasks.register<Exec>("matlabDev") {
             addpath(genpath('${layout.buildDirectory.dir("install").get().asFile.path}'));
             clear all;
             cd('${projectDir.path}');
-            dev.cloudgt.matlab.loadRpcEngine();
-            dev.cloudgt.matlab.startRpcEngine(9000);
         """.trimIndent()
         )
     }
