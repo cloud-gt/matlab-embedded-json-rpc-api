@@ -1,0 +1,134 @@
+<deployment-project plugin="plugin.toolbox" plugin-version="1.0">
+  <configuration file="/Users/guillaumetaffin/dev/projetcs/matlab-embedded-json-rpc-api/matlab-embedded/matlab-json-rpc-engine.prj" location="/Users/guillaumetaffin/dev/projetcs/matlab-embedded-json-rpc-api/matlab-embedded" name="matlab-json-rpc-engine" target="target.toolbox" target-name="Package Toolbox">
+    <param.appname>matlab-json-rpc-engine</param.appname>
+    <param.authnamewatermark>Guillaume Taffin</param.authnamewatermark>
+    <param.email>cloudgt.dev@gmail.com</param.email>
+    <param.company>CloudGT</param.company>
+    <param.summary>Enable to create a JSON RPC server that serves the MATLAB Engine API.</param.summary>
+    <param.description />
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.output>${PROJECT_ROOT}/matlab-json-rpc-engine.mltbx</param.output>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.guid>ff8a60b1-a89b-42d8-9a81-8095363c2ad8</param.guid>
+    <param.exclude.filters />
+    <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
+    <param.examples />
+    <param.demosxml />
+    <param.apps />
+    <param.registered.apps />
+    <param.docs />
+    <param.getting.started.guide />
+    <param.matlabpath.excludes />
+    <param.javaclasspath.excludes>
+      <item>/matlab-engine-json-rpc/rpc-server/matlab-control-5.0..jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/http4k-format-core-5.27.0.0.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/kotlin-reflect-1.7.22.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/http4k-server-websocket-5.27.0.0.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/http4k-format-jackson-5.27.0.0.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/Java-WebSocket-1.5.6.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/matlab-engine-json-rpc-server-api.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/annotations-23.0.0.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/jackson-core-2.17.2.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/http4k-jsonrpc-5.27.0.0.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/http4k-core-5.27.0.0.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/slf4j-api-2.0.6.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/http4k-client-websocket-5.27.0.0.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/jackson-databind-2.17.2.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/jackson-annotations-2.17.2.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/kotlinx-coroutines-core-jvm-1.9.0-RC.2.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/kotlin-stdlib-2.0.10.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/jackson-module-kotlin-2.17.2.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/matlab-engine-json-rpc-server-core.jar</item>
+      <item>/matlab-engine-json-rpc/rpc-server/http4k-realtime-core-5.27.0.0.jar</item>
+    </param.javaclasspath.excludes>
+    <param.exported.on.package>false</param.exported.on.package>
+    <param.required.addons />
+    <param.matlab.project.id />
+    <param.matlab.project.name />
+    <param.release.start />
+    <param.release.end />
+    <param.release.current.only>false</param.release.current.only>
+    <param.compatiblity.windows>true</param.compatiblity.windows>
+    <param.compatiblity.macos>true</param.compatiblity.macos>
+    <param.compatiblity.linux>true</param.compatiblity.linux>
+    <param.compatiblity.matlabonline>true</param.compatiblity.matlabonline>
+    <param.installation.map />
+    <param.additional.sw.names />
+    <param.additional.sw.licenses />
+    <param.additional.sw.win.url />
+    <param.additional.sw.mac.url />
+    <param.additional.sw.linux.url />
+    <unset>
+      <param.description />
+      <param.screenshot />
+      <param.version />
+      <param.output />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.exclude.filters />
+      <param.exclude.pcodedmfiles />
+      <param.examples />
+      <param.demosxml />
+      <param.apps />
+      <param.registered.apps />
+      <param.docs />
+      <param.getting.started.guide />
+      <param.matlabpath.excludes />
+      <param.exported.on.package />
+      <param.required.addons />
+      <param.matlab.project.id />
+      <param.matlab.project.name />
+      <param.release.start />
+      <param.release.end />
+      <param.release.current.only />
+      <param.compatiblity.windows />
+      <param.compatiblity.macos />
+      <param.compatiblity.linux />
+      <param.compatiblity.matlabonline />
+      <param.installation.map />
+      <param.additional.sw.names />
+      <param.additional.sw.licenses />
+      <param.additional.sw.win.url />
+      <param.additional.sw.mac.url />
+      <param.additional.sw.linux.url />
+    </unset>
+    <fileset.rootdir>
+      <file>${PROJECT_ROOT}/build/install</file>
+    </fileset.rootdir>
+    <fileset.rootfiles>
+      <file>${PROJECT_ROOT}/build/install/matlab-engine-json-rpc</file>
+    </fileset.rootfiles>
+    <fileset.depfun.included />
+    <fileset.depfun.excluded />
+    <fileset.package />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}" name="matlab-json-rpc-engine.mltbx" optional="false">/Users/guillaumetaffin/dev/projetcs/matlab-embedded-json-rpc-api/matlab-embedded/matlab-json-rpc-engine.mltbx</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/Applications/MATLAB_R2024b.app</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>true</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>14.6.1</osver>
+      <os32>true</os32>
+      <os64>false</os64>
+      <arch>maci64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
