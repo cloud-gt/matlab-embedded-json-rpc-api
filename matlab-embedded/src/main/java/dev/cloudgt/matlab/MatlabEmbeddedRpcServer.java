@@ -1,8 +1,5 @@
 package dev.cloudgt.matlab;
 
-import com.mathworks.engine.EngineException;
-import com.mathworks.engine.MatlabEngine;
-
 public class MatlabEmbeddedRpcServer {
 
     private static MatlabRpcServer INSTANCE;
@@ -10,13 +7,7 @@ public class MatlabEmbeddedRpcServer {
 
     public static void start(int port) {
         if (null == INSTANCE) {
-            INSTANCE = MatlabRpcServerLoader.factory.create(() -> {
-                try {
-                    return MatlabEngine.getCurrentMatlab();
-                } catch (EngineException e) {
-                    throw new RuntimeException(e);
-                }
-            });
+            INSTANCE = MatlabRpcServerLoader.factory.create(MatlabRpcServerLoader.matlabVersion);
         } else if (IS_RUNNING) {
             throw new RuntimeException("MATLAB RPC ENGINE IS ALREADY STARTED");
         }

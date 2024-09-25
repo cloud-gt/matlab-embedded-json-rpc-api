@@ -1,10 +1,9 @@
 package dev.cloudgt.matlab
 
-import com.mathworks.engine.MatlabEngine
 import java.io.Writer
 
 class Matlab(
-    private val matlabEngine: MatlabEngine,
+    private val matlabEngine: MatlabEngineApi,
     private val stdout: Writer,
     private val stderr: Writer
 ) {
@@ -14,11 +13,11 @@ class Matlab(
     }
 
     fun feval(command: FEvalCommand): Any {
-        return matlabEngine.feval<Any>(command.nlhs, command.func, stdout, stderr, *command.args) ?: Unit
+        return matlabEngine.feval(command.nlhs, command.func, stdout, stderr, *command.args) ?: Unit
     }
 
     fun getVariable(command: GetVariableCommand): Any {
-        return matlabEngine.getVariable<Any>(command.name) ?: Unit
+        return matlabEngine.getVariable(command.name) ?: Unit
     }
 
     fun putVariable(command: PutVariableCommand) {

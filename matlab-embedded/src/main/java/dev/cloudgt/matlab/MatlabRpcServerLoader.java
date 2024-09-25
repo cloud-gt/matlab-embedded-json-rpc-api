@@ -11,8 +11,10 @@ import java.util.ServiceLoader;
 public class MatlabRpcServerLoader {
 
     static MatlabRpcServerFactory factory;
+    static String matlabVersion;
 
-    public static void load(String folder) {
+    public static void load(String folder, String matlabVersion) {
+        MatlabRpcServerLoader.matlabVersion = matlabVersion;
         try {
             File[] files = Paths.get(folder).toFile().listFiles();
             if (files == null) {

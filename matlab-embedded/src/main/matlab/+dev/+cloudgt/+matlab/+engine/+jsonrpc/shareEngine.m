@@ -16,7 +16,7 @@ for i=1:length(matlabJars)
 end
 
 serverJarsDir = fullfile(installRootDir, 'rpc-server');
-dev.cloudgt.matlab.MatlabRpcServerLoader.load(serverJarsDir);
+dev.cloudgt.matlab.MatlabRpcServerLoader.load(serverJarsDir, version('-release'));
 
 dev.cloudgt.matlab.MatlabEmbeddedRpcServer.start(port);
 end

@@ -15,6 +15,8 @@ dependencies {
     compileOnly(files("$matlabroot/extern/engines/java/jar/engine.jar"))
     implementation(project(":json-rpc-server:api"))
 
+    implementation(libs.matlabcontrol)
+
     implementation(platform("org.http4k:http4k-bom:5.27.0.0"))
     implementation("org.http4k:http4k-format-jackson")
     implementation("org.http4k:http4k-jsonrpc")
