@@ -19,35 +19,28 @@ jobs:
       uses: matlab-actions/setup-matlab@v2
       with:
         cache: true
-    - run: which matlab | sed 's|/bin/matlab||'
-  #   - name: Run script
-  #     uses: matlab-actions/run-command@v2
-  #     with:
-  #       command: writelines(matlabroot, "${{ github.workspace }}/matlabroot.txt")
-  #   - name: Put matlabroot in env
-  #     run: cat ${{ github.workspace }}/matlabroot.txt
-  #   - name: Set up JDK 23
-  #     uses: actions/setup-java@v4
-  #     with:
-  #       java-version: '23'
-  #       distribution: 'temurin'
-  #   - name: Setup Gradle
-  #     uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
-  #   - name: Build with Gradle Wrapper
-  #     run: ./gradlew build -Pmatlabroot=$(cat ${{ github.workspace }}/matlabroot.txt)
+    - name: Set up JDK 23
+      uses: actions/setup-java@v4
+      with:
+        java-version: '23'
+        distribution: 'temurin'
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+    - name: Build with Gradle Wrapper
+      run: ./gradlew build -Pmatlabroot=$(which matlab | sed 's|/bin/matlab||')
 
-  # dependency-submission:
+  dependency-submission:
 
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     contents: write
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
-  #   steps:
-  #   - uses: actions/checkout@v4
-  #   - name: Set up JDK 23
-  #     uses: actions/setup-java@v4
-  #     with:
-  #       java-version: '23'
-  #       distribution: 'temurin'
-  #   - name: Generate and submit dependency graph
-  #     uses: gradle/actions/dependency-submission@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 23
+      uses: actions/setup-java@v4
+      with:
+        java-version: '23'
+        distribution: 'temurin'
+    - name: Generate and submit dependency graph
+      uses: gradle/actions/dependency-submission@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
