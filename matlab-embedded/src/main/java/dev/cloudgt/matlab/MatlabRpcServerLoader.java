@@ -10,7 +10,7 @@ import java.util.ServiceLoader;
 
 public class MatlabRpcServerLoader {
 
-    private static MatlabRpcServerFactory matlabRpcServerFactory;
+    static MatlabRpcServerFactory factory;
 
     public static void load(String folder) {
         try {
@@ -35,14 +35,10 @@ public class MatlabRpcServerLoader {
 
             ServiceLoader<MatlabRpcServerFactory> loader = ServiceLoader.load(MatlabRpcServerFactory.class, serverClassLoader);
             loader.reload();
-            matlabRpcServerFactory = loader.iterator().next();
+            factory = loader.iterator().next();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static MatlabRpcServerFactory matlabRpcServerFactory() {
-        return matlabRpcServerFactory;
     }
 
 }

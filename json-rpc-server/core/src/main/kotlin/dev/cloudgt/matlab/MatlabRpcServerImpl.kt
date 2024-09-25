@@ -72,6 +72,10 @@ class MatlabRpcServerImpl(private val engineFactory: Supplier<MatlabEngine>) : M
         server.stop()
     }
 
+    override fun port(): Int {
+        return server.port()
+    }
+
     private fun createHandler(matlab: Matlab): HttpHandler = JsonRpc.auto(CustomJackson, MatlabErrorHandler) {
         method("eval", handler(matlab::eval))
         method("feval", handler(matlab::feval))
