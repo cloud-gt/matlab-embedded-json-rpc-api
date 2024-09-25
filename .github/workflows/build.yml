@@ -19,7 +19,7 @@ jobs:
       uses: matlab-actions/setup-matlab@v2
       with:
         cache: true
-    - run: which matlab
+    - run: which matlab | sed 's|/bin/matlab||'
   #   - name: Run script
   #     uses: matlab-actions/run-command@v2
   #     with:
